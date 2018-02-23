@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Service Workers | PWA Examples</title>
+</head>
+<body>
+  <h1>Service Workers | PWA Examples</h1>
+  <p>
+    <input id="input1" value="One Way Message" />
+    <button id="btn1">Send One Way</button>
+    <span id="msg1"></span>
+  </p>
+  <p>
+    <input id="input2" value="Two Way Message" />
+    <button id="btn2">Send Two Way</button>
+    <span id="msg2"></span>
+  </p>
+  <h2>Register A service worker</h2>
+  <p>The first event a service worker gets is 'install'. It's triggered as soon as the worker executes, and it's only called once per service worker. If you alter your service worker script the browser considers it a different service worker, and it'll get its own install event.</p>
+  <p>Once your service worker is ready to control clients and handle functional events like push and sync, you'll get an activate event. The default is consistency, if your page loads without a service worker, neither will its subresources. If you load the demo a second time (in other words, refresh the page), it'll be controlled.</p>
+  <p>One subtlety with the register() method is the location of the service worker file. You'll notice in this case that the service worker file is at the root of the domain. This means that the service worker's scope will be the entire origin. In other words, this service worker will receive fetch events for everything on this domain. If we register the service worker file at /example/sw.js, then the service worker would only see fetch events for pages whose URL starts with /example/ (i.e. /example/page1/, /example/page2/).</p>
+  <p>Learn <a target="_blank" href="https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle">More</a></p>
+</body>
+<script src="./js/index.js"></script>
+</html>

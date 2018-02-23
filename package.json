@@ -1,0 +1,23 @@
+{
+  "name": "pwa-examples",
+  "version": "1.0.0",
+  "description": "Examples for PWA",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csbun/pwa-examples.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csbun/pwa-examples/issues"
+  },
+  "homepage": "https://github.com/csbun/pwa-examples#readme",
+  "dependencies": {
+    "koa": "^2.5.0",
+    "koa-static": "^4.0.2"
+  }
+}

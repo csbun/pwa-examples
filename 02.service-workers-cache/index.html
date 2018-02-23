@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Service Workers with Cache | PWA Examples</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/color.css">
+</head>
+<body>
+  <h2>Cache all files on install</h2>
+  <p>If all the files are successfully cached, then the service worker will be installed. If any of the files fail to download, then the install step will fail. This allows you to rely on having all the assets that you defined.</p>
+  <h2>Cache and return requests</h2>
+  <p>
+    Fetch '/service-workers-cache/css/style.css', '/service-workers-cache/js/index.js' from CACHE and '/service-workers-cache/css/color.css' from REMOTE.
+  </p>
+  <img src="https://developers.google.com/web/fundamentals/primers/service-workers/images/sw-lifecycle.png" />
+  <p>Learn <a target="_blank" href="https://developers.google.com/web/fundamentals/primers/service-workers/">More</a></p>
+</body>
+<script src="./js/index.js"></script>
+</html>

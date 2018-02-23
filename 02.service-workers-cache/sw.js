@@ -1,0 +1,57 @@
+var CACHE_NAME = '02.service-workers-cache:v1';
+var urlsToCache = [
+  // '/02.service-workers-cache/NOT_EXIST.flie',
+  '/02.service-workers-cache/css/style.css',
+  '/02.service-workers-cache/js/index.js',
+];
+
+// Cache all files on install
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+  console.log('Installed');
+});
+
+// Cache and return requests
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          console.log('Fetch from cache:', event.request.url);
+          return response;
+        }
+
+        console.log('Fetch from remote:', event.request.url);
+        return fetch(event.request);
+        /**
+         * Cache new requests cumulatively
+         */
+        // var fetchRequest = event.request.clone();
+        //
+        // return fetch(fetchRequest).then(
+        //   function(response) {
+        //     console.log('Fetch', event.request.url, 'from remote');
+        //     // Check if we received a valid response
+        //     if(!response || response.status !== 200 || response.type !== 'basic') {
+        //       return response;
+        //     }
+        //     var responseToCache = response.clone();
+        //     caches.open(CACHE_NAME)
+        //       .then(function(cache) {
+        //         console.log('And save', event.request.url, 'to cache');
+        //         cache.put(event.request, responseToCache);
+        //       });
+
+        //     return response;
+        //   }
+        // );
+      })
+    );
+});
