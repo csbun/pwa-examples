@@ -30,28 +30,6 @@ self.addEventListener('fetch', function(event) {
 
         console.log('Fetch from remote:', event.request.url);
         return fetch(event.request);
-        /**
-         * Cache new requests cumulatively
-         */
-        // var fetchRequest = event.request.clone();
-        //
-        // return fetch(fetchRequest).then(
-        //   function(response) {
-        //     console.log('Fetch', event.request.url, 'from remote');
-        //     // Check if we received a valid response
-        //     if(!response || response.status !== 200 || response.type !== 'basic') {
-        //       return response;
-        //     }
-        //     var responseToCache = response.clone();
-        //     caches.open(CACHE_NAME)
-        //       .then(function(cache) {
-        //         console.log('And save', event.request.url, 'to cache');
-        //         cache.put(event.request, responseToCache);
-        //       });
-
-        //     return response;
-        //   }
-        // );
       })
     );
 });
