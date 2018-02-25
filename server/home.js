@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { URL_PREFIX } = require('./constants');
 
 const ROOT = path.join(__dirname, '../');
 const CURRENT_PATH = path.basename(__dirname);
@@ -19,7 +20,7 @@ module.exports = async function home(ctx, next) {
   if (ctx.path === '/') {
     const HTML = fs.readdirSync(ROOT)
       .filter(isExamplePath)
-      .map(x => `<p><a href="/${x}/index.html">${x}</a></p>`)
+      .map(x => `<p><a href="${URL_PREFIX}/${x}/index.html">${x}</a></p>`)
       .join('');
     ctx.body = `<!DOCTYPE html>
       <html lang="en">

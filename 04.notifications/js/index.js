@@ -2,6 +2,7 @@ const elTitle = document.getElementById('title');
 const elBody = document.getElementById('body');
 const elBtn1 = document.getElementById('btn1');
 const elBtn2 = document.getElementById('btn2');
+const prefix = location.pathname.replace(/\/index\.html$/, '');
 
 function bindBtnClickWhilePermissionGranted(btn, cb) {
   btn.addEventListener('click', function(e) {
@@ -31,14 +32,14 @@ Notification.requestPermission()
 bindBtnClickWhilePermissionGranted(elBtn1, function() {
   var n = new Notification(elTitle.value, {
     body: elBody.value,
-    icon: './images/icon-48.png',
+    icon: `${prefix}/images/icon-48.png`,
     vibrate: [ 200, 100, 200, 100, 200 ],
   });
 });
 
 // notification with actions: use serviceWorker
 navigator.serviceWorker
-  .register('/04.notifications/sw.js')
+  .register(`${prefix}/sw.js`)
   .then(function(registration) {
     // Registration was successful
     console.log('[success] scope: ', registration.scope);
@@ -48,8 +49,8 @@ navigator.serviceWorker
         body: elBody.value,
         tag: 'message',
         renotify: true,
-        icon: '/03.add-to-home-screen/images/icon-192.png',
-        badge: './images/badge-72.png', // Mobile Only
+        icon: `${prefix}/images/icon-192.png`,
+        badge: `${prefix}/images/badge-72.png`, // Mobile Only
         vibrate: [ 200, 100, 200, 100, 200 ], // Mobile Only
         // Adding data to a notification
         data: {
@@ -59,11 +60,11 @@ navigator.serviceWorker
         actions: [{
           action: 'y',
           title: 'Yes',
-          icon: './images/check.png',
+          icon: `${prefix}/images/check.png`,
         }, {
           action: 'n',
           title: 'No',
-          icon: './images/cross.png',
+          icon: `${prefix}/images/cross.png`,
         }]
       });
     });

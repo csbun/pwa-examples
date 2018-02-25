@@ -42,7 +42,8 @@ function bindClickEventToDispatchSWEvent(id, twoWay) {
 // Register A service worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/01.service-workers/sw.js')
+    const prefix = location.pathname.replace(/\/index\.html$/, '');
+    navigator.serviceWorker.register(`${prefix}/sw.js`)
       .then(function(registration) {
         // Registration was successful
         console.log('[success] scope: ', registration.scope);

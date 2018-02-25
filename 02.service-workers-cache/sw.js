@@ -1,8 +1,8 @@
 var CACHE_NAME = '02.service-workers-cache:v1';
 var urlsToCache = [
-  // '/02.service-workers-cache/NOT_EXIST.flie',
-  '/02.service-workers-cache/css/style.css',
-  '/02.service-workers-cache/js/index.js',
+  // '/pwa-examples/02.service-workers-cache/NOT_EXIST.flie',
+  '/pwa-examples/02.service-workers-cache/css/style.css',
+  '/pwa-examples/02.service-workers-cache/js/index.js',
 ];
 
 // Cache all files on install

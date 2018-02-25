@@ -18,6 +18,7 @@
   "homepage": "https://github.com/csbun/pwa-examples#readme",
   "dependencies": {
     "koa": "^2.5.0",
+    "koa-mount": "^3.0.0",
     "koa-static": "^4.0.2"
   }
 }

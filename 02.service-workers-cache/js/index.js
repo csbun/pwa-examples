@@ -1,7 +1,8 @@
 // Register A service worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/02.service-workers-cache/sw.js')
+    const prefix = location.pathname.replace(/\/index\.html$/, '');
+    navigator.serviceWorker.register(`${prefix}/sw.js`)
       .then(function(registration) {
         // Registration was successful
         console.log('[success] scope: ', registration.scope);
