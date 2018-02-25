@@ -45,6 +45,7 @@ navigator.serviceWorker
     console.log('[success] scope: ', registration.scope);
     // bind actions
     bindBtnClickWhilePermissionGranted(elBtn2, function() {
+      // TODO: unable to show at the first time while sw is NOT actived
       registration.showNotification(elTitle.value, {
         body: elBody.value,
         tag: 'message',
