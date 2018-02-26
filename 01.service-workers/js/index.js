@@ -17,10 +17,15 @@ function sendMessage(message, twoWay) {
     // The service worker can then use the transferred port to reply via postMessage(), which
     // will in turn trigger the onmessage handler on messageChannel.port1.
     // See https://html.spec.whatwg.org/multipage/workers.html#dom-worker-postmessage
-    navigator.serviceWorker.controller.postMessage(
-      { twoWay, message },
-      [messageChannel.port2]
-    );
+    try {
+      navigator.serviceWorker.controller.postMessage(
+        { twoWay, message },
+        [messageChannel.port2]
+      );
+    } catch(e) {
+      // TODO: unable to show while sw installed at the first time
+      reject(e);
+    }
   });
 }
 
@@ -42,7 +47,7 @@ function bindClickEventToDispatchSWEvent(id, twoWay) {
 // Register A service worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    const prefix = location.pathname.replace(/\/index\.html$/, '');
+    const prefix = location.pathname.replace(/\/(index\.html)?$/, '');
     navigator.serviceWorker.register(`${prefix}/sw.js`)
       .then(function(registration) {
         // Registration was successful

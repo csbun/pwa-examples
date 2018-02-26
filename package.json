@@ -2,9 +2,9 @@
   "name": "pwa-examples",
   "version": "1.0.0",
   "description": "Examples for PWA",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,9 @@
   "homepage": "https://github.com/csbun/pwa-examples#readme",
   "dependencies": {
     "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
     "koa-mount": "^3.0.0",
-    "koa-static": "^4.0.2"
+    "koa-static": "^4.0.2",
+    "web-push": "^3.3.0"
   }
 }

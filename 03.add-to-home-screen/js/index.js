@@ -1,7 +1,7 @@
 // Register A service worker, for offline cache
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    const prefix = location.pathname.replace(/\/index\.html$/, '');
+    const prefix = location.pathname.replace(/\/(index\.html)?$/, '');
     navigator.serviceWorker.register(`${prefix}/sw.js`)
       .then(function(registration) {
         // Registration was successful
