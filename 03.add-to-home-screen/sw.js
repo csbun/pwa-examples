@@ -17,7 +17,7 @@ self.addEventListener('fetch', function(event) {
          * Cache new requests cumulatively
          */
         var fetchRequest = event.request.clone();
-        return fetch(fetchRequest).then(
+        return fetch(fetchRequest.url).then(
           function(response) {
             console.log('Fetch', event.request.url, 'from remote');
             // Check if we received a valid response

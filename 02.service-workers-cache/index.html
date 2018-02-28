@@ -15,7 +15,14 @@
   <p>
     Fetch '/service-workers-cache/css/style.css', '/service-workers-cache/js/index.js' from CACHE and '/service-workers-cache/css/color.css' from REMOTE.
   </p>
-  <img src="https://developers.google.com/web/fundamentals/primers/service-workers/images/sw-lifecycle.png" />
+  <p>
+    <!-- https://developers.google.com/web/fundamentals/primers/service-workers/#non-cors_fail_by_default -->
+    <img src="https://developers.google.com/web/fundamentals/primers/service-workers/images/sw-lifecycle.png" alt="no-cross" />
+  </p>
+  <p>By default, fetching a resource from a third party URL will fail if it doesn't support CORS. You can add a no-CORS option to the Request to overcome this, although this will cause an 'opaque' response, which means you won't be able to tell if the response was successful or not.</p>
+  <p>
+    <img src="https://unpkg.com/resize-image@0.0.4/example/google.png" alt="cross-origin">
+  </p>
   <p>Learn <a target="_blank" href="https://developers.google.com/web/fundamentals/primers/service-workers/">More</a></p>
 </body>
 <script src="./js/index.js"></script>
